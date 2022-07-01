@@ -38,7 +38,8 @@ public class UserServiceApplication {
 
 
     @GetMapping("/displayOrders")
-   @CircuitBreaker(name =USER_SERVICE,fallbackMethod = "getAllAvailableProducts")
+    //both circucit breaker and retry module available.
+   //@CircuitBreaker(name =USER_SERVICE,fallbackMethod = "getAllAvailableProducts")
     @Retry(name = USER_SERVICE,fallbackMethod = "getAllAvailableProducts")
     public List<OrderDTO> displayOrders(@RequestParam("category") String category) {
         String url = category == null ? BASEURL : BASEURL + "/" + category;
@@ -46,7 +47,7 @@ public class UserServiceApplication {
         return restTemplate.getForObject(url, ArrayList.class);
     }
 
-
+//dummy values ,which will display when the fallback method is called.
     public List<OrderDTO> getAllAvailableProducts(Exception e){
         return Stream.of(
                 new OrderDTO(119, "LED TV", "electronics", "white", 45000),

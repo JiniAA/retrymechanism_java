@@ -29,8 +29,8 @@ resilience4j:
   retry:
     instances:
       userService:
-        maxRetryAttempts: 5
-        waitDuration: 10s
+        maxRetryAttempts: 3
+        waitDuration: 2s
 
 
 
