@@ -1,2 +1,2 @@
 # retrymechanism_java
-This ia a small demo to fro retry mechanisam in java using resilence4j
+This ia a small demo of retry mechanisam in java using resilence4j
